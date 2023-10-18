@@ -20,15 +20,7 @@ public class AlunoService {
 	
 	public Aluno buscarAlunoPorId(Integer id) {
 		
-		return alunoRepo.findById(id).orElse(null); // --uma forma de retorno 
-		
-		//return alunoRepo.findById(id).get(); --outra forma de retorno
-		
-		/*Optional<Aluno> alunoBanco = alunoRepo.findById(id); --outra forma de retorno
-		if(alunoBanco.isPresent())
-			return alunoBanco.get();
-		else
-			return null;*/
+		return alunoRepo.findById(id).orElse(null); 
 	}
 	
 	public AlunoResumidoDTO getAlunoResumidoPorId(Integer id) {

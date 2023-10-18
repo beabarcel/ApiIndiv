@@ -55,12 +55,6 @@ public class AlunoController {
 
 	}
 	
-	/*
-	 * @GetMapping("/{buscarid}") public ResponseEntity <Aluno>
-	 * buscarId(@RequestParam Integer id) { return new ResponseEntity<>
-	 * (alunoService.buscarAlunoPorId(id), HttpStatus.OK); }
-	 */
-
 	@PostMapping
 	public ResponseEntity<Aluno> salvarAluno(@RequestBody Aluno aluno) {
 		return new ResponseEntity<>(alunoService.salvarAluno(aluno), HttpStatus.CREATED);
