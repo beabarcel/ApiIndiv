@@ -12,6 +12,9 @@ public class LivroService {
 	@Autowired
 	LivroRepository livroRepo;
 	
+	@Autowired
+	EmailService emailService;
+	
 	public List <Livro> listarLivros(){
 		return livroRepo.findAll();
 	}
@@ -21,7 +24,9 @@ public class LivroService {
 	}
 	
 	public Livro salvarLivro(Livro livro) {
-		return livroRepo.save(livro);
+		Livro newLivro = livroRepo.save(livro);
+		emailService.enviarEmail("beabarcel@ufrrj.br", "Novo livro cadastrado", newLivro.toString());
+		return newLivro;
 	}
 	
 	public Livro atualizarLivro(Livro livro) {
